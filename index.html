@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DailyUse.com - E-Commerce Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b, #86a8e7, #91eae4); /* Colourful gradient background */
+            background-attachment: fixed;
+            color: #333;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff7e5f;
+        }
+        .logo img {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        nav {
+            background-color: rgba(68, 68, 68, 0.9);
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #ff7e5f;
+        }
+        main {
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        section {
+            margin-bottom: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product h3 {
+            margin: 0.5rem 0;
+        }
+        .product p {
+            margin: 0.5rem 0;
+        }
+        .product a {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .product a:hover {
+            background-color: #218838;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .cart-empty {
+            display: block;
+        }
+        .cart-full {
+            display: none;
+        }
+        /* Simulated "add to cart" by showing cart items when targeted */
+        #cart:target .cart-empty {
+            display: none;
+        }
+        #cart:target .cart-full {
+            display: block;
+        }
+        .checkout-empty {
+            display: block;
+        }
+        .checkout-full {
+            display: none;
+        }
+        /* Show checkout form when targeted */
+        #checkout:target .checkout-empty {
+            display: none;
+        }
+        #checkout:target .checkout-full {
+            display: block;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        form label {
+            display: block;
+            margin-top: 1rem;
+        }
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: rgba(51, 51, 51, 0.9);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/50x50?text=DU" alt="DailyUse Logo"> <!-- Placeholder logo; replace with actual logo URL -->
+            DailyUse.com
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#cart">Cart</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>Welcome to DailyUse.com</h2>
+            <p>Your one-stop shop for everyday essentials. Browse our featured products below or navigate to see more!</p>
+        </section>
+        <section id="products">
+            <h2>Featured Products</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=250&h=200&fit=crop" alt="Dish Washer">
+                    <h3>Dish Washer</h3>
+                    <p>$299.99</p>
+                    <a href="#cart">Add to Cart</a>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=250&h=200&fit=crop" alt="Gaming Keyboard">
+                    <h3>Gaming Keyboard</h3>
+                    <p>$79.99</p>
+                    <a href="#cart">Add to Cart</a>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=250&h=200&fit=crop" alt="Sofa">
+                    <h3>Sofa</h3>
+                    <p>$499.99</p>
+                    <a href="#cart">Add to Cart</a>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=250&h=200&fit=crop" alt="Mobile Phone">
+                    <h3>Mobile Phone</h3>
+                    <p>$199.99</p>
+                    <a href="#cart">Add to Cart</a>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=250&h=200&fit=crop" alt="Bedsheet">
+                    <h3>Bedsheet</h3>
+                    <p>$29.99</p>
+                    <a href="#cart">Add to Cart</a>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=250&h=200&fit=crop" alt="Television">
+                    <h3>Television</h3>
+                    <p>$399.99</p>
+                    <a href="#cart">Add to Cart</a>
+                </div>
+            </div>
+        </section>
+        <section id="cart">
+            <h2>Your Cart</h2>
+            <div class="cart-empty">
+                <p>Your cart is currently empty. Click "Add to Cart" on any product to add it here!</p>
+            </div>
+            <div class="cart-full">
+                <p>Items added to cart (simulated - in a real site, this would update dynamically):</p>
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=50&h=50&fit=crop" alt="Dish Washer">
+                    <div>
+                        <h4>Dish Washer</h4>
+                        <p>$299.99</p>
+                    </div>
+                    <button>Remove</button>
+                </div>
+                <!-- Add more items as needed; this is a static example -->
+                <p>Total: $299.99</p>
+                <a href="#checkout" style="background-color: #007bff; color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none;">Checkout</a>
+            </div>
+        </section>
+        <section id="checkout">
+            <h2>Checkout</h2>
+            <div class="checkout-empty">
+                <p>Please add items to your cart first.</p>
+            </div>
+            <div class="checkout-full">
+                <p>Complete your purchase below.</p>
+                <form action="#checkout" method="post"> <!-- Simulated form; won't submit without backend -->
+                    <h3>Shipping Address</h3>
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                    
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                    
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                    
+                    <label for="zip">ZIP Code:</label>
+                    <input type="text" id="zip" name="zip" required>
+                    
+                    <h3>Payment Details</h3>
+                    <label for="cardnumber">Card Number:</label>
+                    <input type="text" id="cardnumber" name="cardnumber" required>
+                    
+                    <label for="expiry">Expiry Date (MM/YY):</label>
+                    <input type="text" id="expiry" name="expiry" required>
+                    
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                    
+                    <label for="cardholder">Cardholder Name:</label>
+                    <input type="text" id="cardholder" name="cardholder" required>
+                    
+                    <button type="submit">Complete Purchase</button>
+                </form>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="#contact" method="post"> <!-- Simulated form; won't submit without backend -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 DailyUse.com. All rights reserved.</p>
+    </footer>
+</body>
+</html>
